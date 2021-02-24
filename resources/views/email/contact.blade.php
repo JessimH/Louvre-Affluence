@@ -3,7 +3,7 @@
 
 
 
-Nous vous donnons rendez-vous le {{\Carbon\Carbon::parse($reservation->date)->format('d/m/Y')}} à {{$reservation -> hour}}h pour effectuer votre visite! 
+Nous vous donnons rendez-vous le {{\Carbon\Carbon::parse($reservation->date)->format('d/m/Y')}} à {{$reservation->hour}}h pour effectuer votre visite! 
 <br>
 <br>
 À très vite!
