@@ -49,7 +49,6 @@ function initMap() {
       <a class="navbar-brand" href="/">Affluence - Musée du Louvre ⚜️ </a>
     </div>
   </nav>
-  @include('flash-message')
   @yield('content')
   <section class="p-5">
     <div id="map" style="height:400px; width: 100%;"></div>

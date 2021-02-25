@@ -9,7 +9,7 @@ Nous vous donnons rendez-vous le {{\Carbon\Carbon::parse($reservation->date)->fo
 À très vite!
 
 Vous ne pouvez plus participer à la visite?
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => "", 'color' => 'error'])
 Annuler ma réservation
 @endcomponent
 

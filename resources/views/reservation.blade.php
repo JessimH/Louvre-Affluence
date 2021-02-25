@@ -6,7 +6,7 @@
     <h2 class="text-center">Réservation</h2>
     <p class="text-center">Réserver une place pour une heure <em>(2 places par heure disponibles)</em>.</p>
 
-   
+  @include('flash-message')
 
     <div class="row justify-content-center">
         <div class="col-sm-8">
