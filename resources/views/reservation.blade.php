@@ -24,7 +24,7 @@
 
                         <div class="my-3">
                             <label for="hour" class="form-label">Heure</label>
-                            <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="18:00" step="3600" required>
+                            <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="17:00" step="3600" required>
                         </div>
 
                         <div class="my-3">
