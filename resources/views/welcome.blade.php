@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">musée du louvre</h1>
+          <h1 class="mb-5">Musée du louvre</h1>
             <a class="btn btn-lg btn-primary" href="/reservation">Réserver</a>
         </div>
         </div>

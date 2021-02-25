@@ -16,17 +16,15 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-Route::get('/reservation', function(){
-    return view('reservation');
-});
+Route::get('/reservation', 'App\Http\Controllers\ReservationController@index');
 
 Route::post('/reservation', 'App\Http\Controllers\ReservationController@store');
 
-Route::get('/valide', function(){
-    return view('valide');
+Route::get('/annulation', function(){
+    return view('annulation');
 });
 
-// Route::post('/reservation/annulation/{reservation}', 'App\Http\Controllers\ContactController@destroy');
+Route::get('/annulation/{reservation}', 'App\Http\Controllers\AnnulationController@destroy');
 
 
 

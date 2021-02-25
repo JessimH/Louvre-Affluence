@@ -6,6 +6,8 @@
     <h2 class="text-center">Réservation</h2>
     <p class="text-center">Réserver une place pour une heure <em>(2 places par heure disponibles)</em>.</p>
 
+   
+
     <div class="row justify-content-center">
         <div class="col-sm-8">
             <div class="card">
@@ -13,25 +15,25 @@
                     <form method="POST" action="/reservation">
                         @csrf
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" value="" min="2021-02-24" required="">
+                        <input type="date" class="form-control" id="date" name="date" value="" min="2021-02-28" required>
                         
                         <div style="display: none;">
                             <label for="uniqueId" class="form-label">UniqueId</label>
-                            <input type="text" class="form-control" id="uniqueId" name="uniqueId" value="{{md5(uniqid(true))}}" required="">
+                            <input type="text" class="form-control" id="uniqueId" name="uniqueId" value="{{md5(uniqid(true))}}" required>
                         </div>
 
                         <div class="my-3">
                             <label for="hour" class="form-label">Heure</label>
-                            <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="18:00" step="3600" required="">
+                            <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="18:00" step="3600" required>
                         </div>
 
                         <div class="my-3">
                             <label for="email" class="form-label">Votre adresse e-mail</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="bill.gates@outlook.com" value="" required="">
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
 
                         <div class="form-check mt-4">
-                            <input class="form-check-input" type="checkbox" id="cgu" name="cgu" required="">
+                            <input class="form-check-input" type="checkbox" id="cgu" name="cgu" required>
                             <label class="form-check-label" for="cgu">
                                 J'ai lu et accepté les <a href="#">conditions d'utilisation</a>
                             </label>

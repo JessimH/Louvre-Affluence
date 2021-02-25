@@ -49,7 +49,7 @@ function initMap() {
       <a class="navbar-brand" href="/">Affluence - Musée du Louvre ⚜️ </a>
     </div>
   </nav>
-
+  @include('flash-message')
   @yield('content')
   <section class="p-5">
     <div id="map" style="height:400px; width: 100%;"></div>
@@ -86,10 +86,10 @@ function initMap() {
     </div>
   </footer>
 
+  <script src=""></script>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
