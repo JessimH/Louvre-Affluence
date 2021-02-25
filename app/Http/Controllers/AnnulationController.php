@@ -11,10 +11,14 @@ use App\Models\Reservation;
 class AnnulationController extends Controller
 {
     //
+    public function show($token){
+        return view('annulation', compact('token'));   
+    }
+
     public function destroy($token)
     {
         Reservation::where('uniqueId', $token )->delete();
 
-        return redirect('/annulation');
+        return redirect('/')->with('success','Votre réservation a bien été annulée');
     }
 }

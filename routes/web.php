@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function(){
+    
     return view('welcome');
 });
 
@@ -20,11 +21,9 @@ Route::get('/reservation', 'App\Http\Controllers\ReservationController@index');
 
 Route::post('/reservation', 'App\Http\Controllers\ReservationController@store');
 
-Route::get('/annulation', function(){
-    return view('annulation');
-});
+Route::get('reservation/annulation/{token}', 'App\Http\Controllers\AnnulationController@show');
 
-Route::get('/annulation/{reservation}', 'App\Http\Controllers\AnnulationController@destroy');
+Route::get('reservation/annulation/{token}/destroy', 'App\Http\Controllers\AnnulationController@destroy');
 
 
 

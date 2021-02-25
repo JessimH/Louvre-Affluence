@@ -15,7 +15,7 @@
                     <form method="POST" action="/reservation">
                         @csrf
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" value="" min="2021-02-28" required>
+                        <input type="date" class="form-control" id="date" name="date" value="" min="{{$today}}" required>
                         
                         <div style="display: none;">
                             <label for="uniqueId" class="form-label">UniqueId</label>

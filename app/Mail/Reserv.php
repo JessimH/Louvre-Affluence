@@ -31,6 +31,7 @@ class Reserv extends Mailable
     public function build()
     {
         return $this->markdown('email.contact')
-                    ->subject('Visite au musée du Louvre, Réservation');
+                    ->subject('Visite au musée du Louvre, Réservation')
+                    ->with('reservation', $this->reservation);;
     }
 }

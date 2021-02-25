@@ -11,7 +11,8 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        return view('reservation');   
+        $today = \Carbon\Carbon::now()->format('Y-m-d');
+        return view('reservation', compact('today'));   
     }
 
     public function store()
