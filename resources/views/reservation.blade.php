@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center mb-5">Musée du Louvre ⚜️</h1>
+    <h1 class="text-center mb-5">{{$title}} ⚜️</h1>
     <h2 class="text-center">Réservation</h2>
-    <p class="text-center">Réserver une place pour une heure <em>(2 places par heure disponibles)</em>.</p>
+    <p class="text-center">Réserver une place pour une heure <em>({{$limite_reservation_max}} places par heure disponibles)</em>.</p>
 
   @include('flash-message')
 
@@ -24,7 +24,7 @@
 
                         <div class="my-3">
                             <label for="hour" class="form-label">Heure</label>
-                            <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="17:00" step="3600" required>
+                            <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="17:00" step="{{$durée_reservation_seconde}}" required>
                         </div>
 
                         <div class="my-3">

@@ -23,7 +23,7 @@ class ReservationSeeder extends Seeder
 
             DB::table('reservations')->insert([
                 'date' => $faker->dateTimeBetween ($startDate = 'now', $endDate = '+1 year')->format('Y-m-d'),
-                'hour' =>  $faker->time(),
+                'hour' =>  $faker->numberBetween($min = 9, $max = 17),
                 'email' => $faker->email,
                 'uniqueId' => $token,
             ]);

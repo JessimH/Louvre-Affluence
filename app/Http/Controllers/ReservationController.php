@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Config;
+
 use App\Models\Reservation;
 use App\Mail\Reserv;
 
@@ -11,13 +13,17 @@ class ReservationController extends Controller
 {
     public function index()
     {
+        $title = Config::get('configuration.title');
+        $durée_reservation_seconde = Config::get('configuration.durée_reservation_seconde');
+        $limite_reservation_max = Config::get('configuration.limite_reservation_max');
         $today = \Carbon\Carbon::now()->format('Y-m-d');
-        return view('reservation', compact('today'));   
+
+        return view('reservation', compact('today','title','durée_reservation_seconde', 'limite_reservation_max'));   
     }
 
     public function store()
     {
-
+        $limite_reservation_max = Config::get('configuration.limite_reservation_max');
         
         $hourChoisis =  request('hour');
         $dateChoisis =  request('date');
@@ -49,7 +55,7 @@ class ReservationController extends Controller
         }
         //  dd($reservationsArr);
 
-        if( count($reservationsArr)<2){
+        if( count($reservationsArr)<$limite_reservation_max){
             // dd('Reservation Ok');
             for($i = 0; $i < $nbrReservationsDate ; $i++){
             

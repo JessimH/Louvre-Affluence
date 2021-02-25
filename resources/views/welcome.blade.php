@@ -8,7 +8,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">Musée du louvre</h1>
+          <h1 class="mb-5">Musée du {{$title}}</h1>
             <a class="btn btn-lg btn-primary" href="/reservation">Réserver</a>
         </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://i.f1g.fr/media/figaro/805x453_crop/2017/06/14/XVM3d04900c-50d9-11e7-9aa8-d9123e1e563e.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Renouez avec votre Histoire</h2>
-          <p class="lead mb-0">Le musée du Louvre présente des œuvres de l'art occidental du Moyen Âge à 1848, des civilisations antiques qui l'ont précédé et influencé et des arts d'Islam.</p>
+          <p class="lead mb-0">Le musée du {{$title}} présente des œuvres de l'art occidental du Moyen Âge à 1848, des civilisations antiques qui l'ont précédé et influencé et des arts d'Islam.</p>
         </div>
       </div>
       <div class="row no-gutters">
@@ -90,13 +90,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>9h - 18h</td>
-                    <td>9h - 18h</td>
-                    <td>9h - 18h</td>
-                    <td>9h - 18h</td>
-                    <td>9h - 18h</td>
-                    <td class="text-muted"><em>Fermé</em></td>
-                    <td class="text-muted"><em>Fermé</em></td>
+                    <td>{{$lundi}}</td>
+                    <td>{{$mardi}}</td>
+                    <td>{{$mercredi}}</td>
+                    <td>{{$jeudi}}</td>
+                    <td>{{$vendredi}}</td>
+                    <td class="text-muted"><em>{{$samedi}}</em></td>
+                    <td class="text-muted"><em>{{$dimanche}}</em></td>
                 </tr>
             </tbody>
         </table>

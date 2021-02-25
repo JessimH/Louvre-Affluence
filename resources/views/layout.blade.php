@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
 
-  <title>Affluence - Heddadi Jessim</title>
+  <title>Affluence - {{$title}}</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top p-4">
     <div class="container">
-      <a class="navbar-brand" href="/">Affluence - Musée du Louvre ⚜️ </a>
+      <a class="navbar-brand" href="/">Affluence - {{$title}} ⚜️ </a>
     </div>
   </nav>
   @yield('content')
@@ -65,7 +65,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-          <p class="text-muted small mb-4 mb-lg-0">Made with ❤️ <br> &copy; Affluence - Jessim Heddadi 2020. All Rights Reserved.</p>
+          <p class="text-muted small mb-4 mb-lg-0">Made with ❤️ <br> &copy; Affluence {{$title}} - Jessim Heddadi 2020. All Rights Reserved.</p>
         </div>
         <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
           <ul class="list-inline mb-0">
