@@ -6,7 +6,7 @@
         <div class="col no-gutters text-center">
           <h1>Annulation de réservation</h1>
           <p>Vous souhaitez annuler votre réservation du {{ \Carbon\Carbon::parse($reservationAnnulation[0]['date'])->format('d/m/Y')}} à {{$reservationAnnulation[0]['hour']}} h ? appuyez sur le bouton ! 👇</p>
-          <a class="btn btn-danger" href="http://127.0.0.1:8000/reservation/annulation/{{$token}}/destroy">Annuler la reservation</a>
+          <a class="btn btn-danger" href="http://laravel-reservation.herokuapp.com/reservation/annulation/{{$token}}/destroy">Annuler la reservation</a>
         </div>
   </div>
 </section>
