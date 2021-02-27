@@ -24,7 +24,8 @@
 
                         <div class="my-3">
                             <label for="hour" class="form-label">Heure</label>
-                            <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="17:00" step="{{$durée_reservation_seconde}}" required>
+                            <!-- <input type="time" id="hour" class="form-control" name="hour" min="09:00" max="17:00" step="{{$durée_reservation_seconde}}" required> -->
+                            <input id="hour" class="form-control" type="number" name="hour" min="9" max="17" placeholder="9" required>
                         </div>
 
                         <div class="my-3">
