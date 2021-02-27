@@ -13,9 +13,9 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $title = Config::get('configuration.title');
-        $durée_reservation_seconde = Config::get('configuration.durée_reservation_seconde');
-        $limite_reservation_max = Config::get('configuration.limite_reservation_max');
+        $title = Config::get('informations.title');
+        $durée_reservation_seconde = Config::get('informations.durée_reservation_seconde');
+        $limite_reservation_max = Config::get('informations.limite_reservation_max');
         $today = \Carbon\Carbon::now()->format('Y-m-d');
 
         return view('reservation', compact('today','title','durée_reservation_seconde', 'limite_reservation_max'));   
@@ -23,12 +23,11 @@ class ReservationController extends Controller
 
     public function store()
     {
-        $limite_reservation_max = Config::get('configuration.limite_reservation_max');
+        $limite_reservation_max = Config::get('informations.limite_reservation_max');
         
         $hourChoisis =  request('hour');
         $dateChoisis =  request('date');
         $userMail = request('email');
-
 
         $reservationExistantesDate = Reservation::where('date', $dateChoisis)->get();
 

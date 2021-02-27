@@ -14,7 +14,7 @@ class AnnulationController extends Controller
 {
     //
     public function show($token){
-        $title = Config::get('configuration.title');
+        $title = Config::get('informations.title');
         $reservationAnnulation = Reservation::where('uniqueId', $token)->get();
 
         if(count($reservationAnnulation)>0){
