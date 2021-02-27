@@ -2,7 +2,7 @@
 
 @section('content')
 @include('flash-message')
-<!-- Masthead -->
+
 <header class="masthead text-white text-center">
     <div class="overlay"></div>
     <div class="container">
@@ -16,7 +16,6 @@
     </div>
   </header>
 
-  <!-- Icons Grid -->
   <section class="features-icons bg-light text-center">
     <div class="container">
       <div class="row">
@@ -51,7 +50,6 @@
     </div>
   </section>
 
-  <!-- Image Showcases -->
   <section class="showcase">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
@@ -104,10 +102,6 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  
-
-  <!-- Call to Action -->
   <section class="call-to-action text-white text-center">
     <div class="overlay"></div>
     <div class="container">

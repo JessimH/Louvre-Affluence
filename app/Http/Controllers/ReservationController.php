@@ -32,8 +32,6 @@ class ReservationController extends Controller
 
         $reservationExistantesDate = Reservation::where('date', $dateChoisis)->get();
 
-        $reservationExistantesUser = Reservation::where('email', $userMail)->get();
-
         $nbrReservationsDate = count($reservationExistantesDate);
 
         $reservationsArr = [];
@@ -53,16 +51,15 @@ class ReservationController extends Controller
                 array_push($reservationsArr, $reservationExistantesDate[$i]['hour']);
             }
         }
-        //  dd($reservationsArr);
 
         if( count($reservationsArr)<$limite_reservation_max){
-            // dd('Reservation Ok');
             for($i = 0; $i < $nbrReservationsDate ; $i++){
             
                 if($reservationExistantesDate[$i]['email'] === $userMail){
                     array_push($checkEmailArr, $reservationExistantesDate[$i]['email']);
                 }
             }
+
             if(count($checkEmailArr)>0){
                 $reservationsArr = [];
                 $checkEmailArr = [];
@@ -90,12 +87,10 @@ class ReservationController extends Controller
             }
         }
         else{
-            // dd('deja 2 reservatino a cette h ');
             $reservationsArr = [];
             $checkEmailArr = [];
             return redirect('/reservation')
             ->with('warning','il n\'y a plus de places disponible pour ce créneau horaire.');
         }
     }
-
 }

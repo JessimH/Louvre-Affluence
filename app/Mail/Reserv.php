@@ -11,7 +11,7 @@ class Reserv extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $reservation;
+    protected $reservation;
     /**
      * Create a new message instance.
      *

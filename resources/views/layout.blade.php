@@ -18,16 +18,15 @@
   <link href="/css/landing-page.css" rel="stylesheet">
 
 <script>
-  // Initialize and add the map
+
   function initMap() {
-    // The location of Uluru
     const louvre = { lat: 48.864824, lng: 2.334595 };
-    // The map, centered at Uluru
+
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 16,
       center: louvre,
     });
-    // The marker, positioned at Uluru
+
     const marker = new google.maps.Marker({
       position: louvre,
       map: map,
@@ -39,8 +38,6 @@
 </head>
 
 <body>
-
-  <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top p-4">
     <div class="container">
       <a class="navbar-brand" href="/">Affluence - {{$title}} ⚜️ </a>
@@ -51,13 +48,11 @@
     <div id="map" style="height:400px; width: 100%;"></div>
   </section>
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXxiZMV2zn36NfN9lJyGfG__KbqIR4VcY&callback=initMap&libraries=&v=weekly"
         async
     ></script>
     
-  <!-- Footer -->
   <footer class="footer bg-light">
     <div class="container">
       <div class="row">
@@ -82,8 +77,6 @@
     </div>
   </footer>
 
-  <script src=""></script>
-  <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
