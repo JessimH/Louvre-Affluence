@@ -28,6 +28,9 @@ class AnnulationController extends Controller
     public function destroy($token)
     {
         $reservationAnnulation = Reservation::where('uniqueId', $token)->get();
+
+        dd($reservationAnnulation);
+        
         if(count($reservationAnnulation)>0){
             Reservation::where('uniqueId', $token )->delete();
 
