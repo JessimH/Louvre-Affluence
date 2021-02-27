@@ -7,7 +7,7 @@ Nous vous donnons rendez-vous le {{\Carbon\Carbon::parse($reservation->date)->fo
 À très vite!
 
 Vous ne pouvez plus participer à la visite?
-@component('mail::button', ['url' => 'http://127.0.0.1:8000/reservation/annulation/'.$reservation->uniqueId, 'color' => 'error'])
+@component('mail::button', ['url' => 'http://http://laravel-reservation.herokuapp.com/reservation/annulation/'.$reservation->uniqueId, 'color' => 'error'])
 Annuler ma réservation
 @endcomponent
 
