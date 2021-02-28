@@ -20,7 +20,7 @@
 <script>
 
   function initMap() {
-    const louvre = { lat: 48.864824, lng: 2.334595 };
+    const louvre = { lat: 48.8606111, lng: 2.337644 };
 
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 16,
