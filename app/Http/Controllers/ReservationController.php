@@ -41,7 +41,8 @@ class ReservationController extends Controller
 
         if($dateChoisisCarbon->isWeekend()){
             return redirect('/reservation')
-            ->with('error','Le musée est fermé les week-end, désolé!');
+            ->with('error','Le musée est fermé les week-end, désolé!')
+            ->withInput();
         }
 
         for($i = 0; $i < $nbrReservationsDate ; $i++){
@@ -82,8 +83,7 @@ class ReservationController extends Controller
                 $reservationsArr = [];
                 $checkEmailArr = [];
                 return redirect('/')
-                ->with('success','Votre réservation à bien été pris en compte, un mail vous à été envoyé.')
-                ->withInput();
+                ->with('success','Votre réservation à bien été pris en compte, un mail vous à été envoyé.');
             }
         }
         else{
