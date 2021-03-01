@@ -15,7 +15,7 @@
                     <form method="POST" action="/reservation">
                         @csrf
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" value="" min="{{$today}}" required>
+                        <input type="date" class="form-control" id="date" name="date" value="{{old('date')}}" min="{{$today}}" required>
                         
                         <div style="display: none;">
                             <label for="uniqueId" class="form-label">UniqueId</label>
@@ -24,12 +24,12 @@
 
                         <div class="my-3">
                             <label for="hour" class="form-label">Heure</label>
-                            <input id="hour" class="form-control" type="number" name="hour" min="9" max="17" placeholder="9" required>
+                            <input id="hour" class="form-control" type="number" name="hour" min="9" max="17" value="{{old('hour')}}" required>
                         </div>
 
                         <div class="my-3">
                             <label for="email" class="form-label">Votre adresse e-mail</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" required>
                         </div>
 
                         <div class="form-check mt-4">

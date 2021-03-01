@@ -67,7 +67,6 @@ class ReservationController extends Controller
             }
             else{
                 request()->validate(['email' => 'required|email']);
-
                 Reservation::create($validatedAttributes = request()->validate([
                     'email' => 'required|email',
                     'date'=> 'required|date',
