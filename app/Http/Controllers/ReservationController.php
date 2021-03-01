@@ -63,7 +63,8 @@ class ReservationController extends Controller
                 $reservationsArr = [];
                 $checkEmailArr = [];
                 return redirect('/reservation')
-                ->with('warning','Vous avez déjà réservé un créneau pour ce jour');
+                ->with('warning','Vous avez déjà réservé un créneau pour ce jour')
+                ->withInput();
             }
             else{
                 request()->validate(['email' => 'required|email']);
@@ -81,14 +82,16 @@ class ReservationController extends Controller
                 $reservationsArr = [];
                 $checkEmailArr = [];
                 return redirect('/')
-                ->with('success','Votre réservation à bien été pris en compte, un mail vous à été envoyé.');
+                ->with('success','Votre réservation à bien été pris en compte, un mail vous à été envoyé.')
+                ->withInput();
             }
         }
         else{
             $reservationsArr = [];
             $checkEmailArr = [];
             return redirect('/reservation')
-            ->with('warning','il n\'y a plus de places disponible pour ce créneau horaire.');
+            ->with('warning','il n\'y a plus de places disponible pour ce créneau horaire.')
+            ->withInput();
         }
     }
 }
