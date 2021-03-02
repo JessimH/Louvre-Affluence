@@ -23,6 +23,13 @@ class ReservationController extends Controller
 
     public function store()
     {
+        request()->validate([
+            'email' => 'required|email',
+            'hour' => 'required',
+            'date' => 'required|date',
+            'cgu' => 'required|accepted'
+        ]);
+
         $limite_reservation_max = Config::get('informations.limite_reservation_max');
         
         $hourChoisis =  request('hour');
@@ -68,7 +75,6 @@ class ReservationController extends Controller
                 ->withInput();
             }
             else{
-                request()->validate(['email' => 'required|email']);
                 Reservation::create($validatedAttributes = request()->validate([
                     'email' => 'required|email',
                     'date'=> 'required|date',
