@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/infos', 'App\Http\Controllers\ApiController@index');
+
+Route::post('booking/', 'App\Http\Controllers\ApiController@store');
+
+Route::post('/booking/{token}', 'App\Http\Controllers\ApiController@destroy');
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+

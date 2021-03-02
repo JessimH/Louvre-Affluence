@@ -9,20 +9,31 @@ use Illuminate\Support\Facades\Config;
 use App\Models\Reservation;
 use App\Mail\Reserv;
 
-class ReservationController extends Controller
+
+class ApiController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $title = Config::get('informations.title');
-        $durée_reservation_seconde = Config::get('informations.durée_reservation_seconde');
-        $limite_reservation_max = Config::get('informations.limite_reservation_max');
-        $today = \Carbon\Carbon::now()->format('Y-m-d');
+        //
+        $informations = Config::get('informations');
 
-        return view('reservation', compact('today','title','durée_reservation_seconde', 'limite_reservation_max'));   
+        return $informations; 
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store()
     {
+        //
         $limite_reservation_max = Config::get('informations.limite_reservation_max');
         
         $hourChoisis =  request('hour');
@@ -40,9 +51,7 @@ class ReservationController extends Controller
         $dateChoisisCarbon = \Carbon\Carbon::parse($dateChoisis);
 
         if($dateChoisisCarbon->isWeekend()){
-            return redirect('/reservation')
-            ->with('error','Le musée est fermé les week-end, désolé!')
-            ->withInput();
+            return response()->json('Le musée est fermé les week-end, désolé!', 400);
         }
 
         for($i = 0; $i < $nbrReservationsDate ; $i++){
@@ -63,9 +72,7 @@ class ReservationController extends Controller
             if(count($checkEmailArr)>0){
                 $reservationsArr = [];
                 $checkEmailArr = [];
-                return redirect('/reservation')
-                ->with('warning','Vous avez déjà réservé un créneau pour ce jour')
-                ->withInput();
+                return response()->json('Vous avez déjà réservé un créneau pour ce jour', 400);
             }
             else{
                 request()->validate(['email' => 'required|email']);
@@ -73,8 +80,7 @@ class ReservationController extends Controller
                     'email' => 'required|email',
                     'date'=> 'required|date',
                     'hour' => 'required',
-                    'uniqueId' => 'required',
-                    'cgu' => 'required'
+                    'uniqueId' => 'required'
                 ]));
         
                 $lastReservation = Reservation::latest()->first();
@@ -83,16 +89,36 @@ class ReservationController extends Controller
                     ->send(new Reserv($lastReservation));
                 $reservationsArr = [];
                 $checkEmailArr = [];
-                return redirect('/')
-                ->with('success','Votre réservation à bien été pris en compte, un mail vous à été envoyé.');
+
+                return response()->json('Votre réservation à bien été pris en compte, un mail vous à été envoyé.', 201);
             }
         }
         else{
             $reservationsArr = [];
             $checkEmailArr = [];
-            return redirect('/reservation')
-            ->with('warning','il n\'y a plus de places disponible pour ce créneau horaire.')
-            ->withInput();
+            return response()->json('il n\'y a plus de places disponible pour ce créneau horaire.', 400);
         }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($token)
+    {
+        //
+        $reservationAnnulation = Reservation::where('uniqueId', $token)->get();
+
+        if(count($reservationAnnulation)>0){
+            Reservation::where('uniqueId', $token )->delete();
+
+            return response()->json('Votre réservation a bien été annulée', 204);
+        }
+        else{
+            return response()->json('Aucune réservation trouvée.', 404) ;
+        } 
+        
     }
 }
