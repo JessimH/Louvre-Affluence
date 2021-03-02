@@ -112,9 +112,9 @@ class ApiController extends Controller
         $reservationAnnulation = Reservation::where('uniqueId', $token)->get();
 
         if(count($reservationAnnulation)>0){
-            Reservation::where('uniqueId', $token )->delete();
-
             return response()->json('Votre réservation a bien été annulée', 204);
+            
+            Reservation::where('uniqueId', $token )->delete();
         }
         else{
             return response()->json('Aucune réservation trouvée.', 404) ;

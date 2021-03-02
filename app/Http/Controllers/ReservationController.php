@@ -74,7 +74,6 @@ class ReservationController extends Controller
                     'date'=> 'required|date',
                     'hour' => 'required',
                     'uniqueId' => 'required',
-                    'cgu' => 'required'
                 ]));
         
                 $lastReservation = Reservation::latest()->first();
